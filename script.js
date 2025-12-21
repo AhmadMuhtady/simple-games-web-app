@@ -8,7 +8,7 @@ let score = 15;
 const title = document.querySelector('.title');
 const number = document.querySelector('.number');
 const highScore = document.querySelector('.highscore');
-let maxNumber = 0;
+let maxNumber = Number(localStorage.getItem('highScore')) || 0;
 
 const getRandomNumber = () => {
 	guessNum = Math.floor(Math.random() * 20 + 1);
@@ -30,6 +30,7 @@ const checkNumber = () => {
 		number.textContent = guessNum;
 		checkBtn.setAttribute('disabled', '');
 		if (score > maxNumber) {
+			localStorage.setItem('highScore', score);
 			maxNumber = score;
 			highScore.textContent = `${maxNumber}`;
 		}
@@ -64,4 +65,7 @@ const reset = () => {
 
 againBtn.addEventListener('click', reset);
 checkBtn.addEventListener('click', checkNumber);
-document.addEventListener('DOMContentLoaded', getRandomNumber);
+document.addEventListener('DOMContentLoaded', () => {
+	getRandomNumber();
+	highScore.textContent = maxNumber;
+});
