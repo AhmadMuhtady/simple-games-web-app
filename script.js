@@ -36,13 +36,13 @@ const checkNumber = () => {
 		}
 	} else if (def <= 5) {
 		message.textContent = `🔥 Warm, try again!`;
-		scoreMes.textContent = `${(score -= 1)}`;
+		scoreMes.textContent = `${score--}`;
 	} else if (def <= 10) {
 		message.textContent = `❄️ Cold, try again!`;
-		scoreMes.textContent = `${(score -= 1)}`;
+		scoreMes.textContent = `${score--}`;
 	} else {
 		message.textContent = `🥶 its Freezing here, try again!`;
-		scoreMes.textContent = `${(score -= 1)}`;
+		scoreMes.textContent = `${score--}`;
 	}
 
 	if (score === 0) {
