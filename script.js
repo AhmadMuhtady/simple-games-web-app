@@ -8,6 +8,7 @@ let score = 15;
 const title = document.querySelector('.title');
 const number = document.querySelector('.number');
 const highScore = document.querySelector('.highscore');
+let maxNumber = 0;
 
 const getRandomNumber = () => {
 	guessNum = Math.floor(Math.random() * 20 + 1);
@@ -28,6 +29,10 @@ const checkNumber = () => {
 		message.textContent = `🎉 You Won!!`;
 		number.textContent = guessNum;
 		checkBtn.setAttribute('disabled', '');
+		if (score > maxNumber) {
+			maxNumber = score;
+			highScore.textContent = `${maxNumber}`;
+		}
 	} else if (def <= 5) {
 		message.textContent = `🔥 Warm, try again!`;
 		scoreMes.textContent = `${(score -= 1)}`;
@@ -48,10 +53,11 @@ const checkNumber = () => {
 
 const reset = () => {
 	getRandomNumber();
-	scoreMes.textContent = `${(score = 20)}`;
+	scoreMes.textContent = `${(score = 15)}`;
 	message.textContent = 'Start guessing...';
 	inputNum.value = '';
 	title.textContent = 'Guess My Number!';
+	number.textContent = '?';
 	checkBtn.removeAttribute('disabled');
 	checkBtn.style.cursor = 'pointer';
 };
