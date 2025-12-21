@@ -55,3 +55,7 @@ const reset = () => {
 	checkBtn.removeAttribute('disabled');
 	checkBtn.style.cursor = 'pointer';
 };
+
+againBtn.addEventListener('click', reset);
+checkBtn.addEventListener('click', checkNumber);
+document.addEventListener('DOMContentLoaded', getRandomNumber);
