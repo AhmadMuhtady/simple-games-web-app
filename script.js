@@ -69,6 +69,10 @@ const reset = () => {
 	number.textContent = '?';
 	checkBtn.removeAttribute('disabled');
 	checkBtn.style.cursor = 'pointer';
+	number.style.width = '';
+	document.body.style.color = '';
+	message.style.color = '';
+	title.style.color = '';
 };
 
 againBtn.addEventListener('click', reset);
