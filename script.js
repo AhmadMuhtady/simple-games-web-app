@@ -34,21 +34,29 @@ const checkNumber = () => {
 			maxNumber = score;
 			highScore.textContent = `${maxNumber}`;
 		}
+		number.style.width = '30rem';
+		document.body.style.color = '#51cf66';
 	} else if (def <= 5) {
 		message.textContent = `🔥 Warm, try again!`;
-		scoreMes.textContent = `${score--}`;
+		scoreMes.textContent = `${--score}`;
+		message.style.color = '#ff6b6b';
 	} else if (def <= 10) {
 		message.textContent = `❄️ Cold, try again!`;
-		scoreMes.textContent = `${score--}`;
+		scoreMes.textContent = `${--score}`;
+		message.style.color = '#4dabf7';
 	} else {
 		message.textContent = `🥶 its Freezing here, try again!`;
-		scoreMes.textContent = `${score--}`;
+		scoreMes.textContent = `${--score}`;
+		message.style.color = '#60d9ff';
 	}
 
 	if (score === 0) {
-		title.textContent = 'You Lost';
+		title.textContent = 'You Lost!!';
 		checkBtn.setAttribute('disabled', '');
 		checkBtn.style.cursor = 'not-allowed';
+		message.textContent = `🤯 Better Luck Next Time!`;
+		message.style.color = '#ff4757';
+		title.style.color = '#ff4757';
 	}
 };
 
