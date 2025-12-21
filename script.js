@@ -8,3 +8,9 @@ let score = 20;
 const title = document.querySelector('.title');
 const number = document.querySelector('.number');
 const highScore = document.querySelector('.highscore');
+
+const getRandomNumber = () => {
+	guessNum = Math.floor(Math.random() * 20 + 1);
+	console.log(guessNum);
+	return guessNum;
+};
