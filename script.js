@@ -14,3 +14,34 @@ const getRandomNumber = () => {
 	console.log(guessNum);
 	return guessNum;
 };
+
+const checkNumber = () => {
+	const inputNumber = Number(inputNum.value);
+	const def = Math.abs(guessNum - inputNumber);
+
+	if (!inputNumber) {
+		message.textContent = '⛔ Enter a number!';
+		return;
+	}
+
+	if (inputNumber === guessNum) {
+		message.textContent = `🎉 You Won!!`;
+		number.textContent = guessNum;
+		checkBtn.setAttribute('disabled', '');
+	} else if (def <= 5) {
+		message.textContent = `🔥 Warm, try again!`;
+		scoreMes.textContent = `${(score -= 1)}`;
+	} else if (def <= 10) {
+		message.textContent = `❄️ Cold, try again!`;
+		scoreMes.textContent = `${(score -= 1)}`;
+	} else {
+		message.textContent = `🥶 its Freezing here, try again!`;
+		scoreMes.textContent = `${(score -= 1)}`;
+	}
+
+	if (score === 0) {
+		title.textContent = 'You Lost';
+		checkBtn.setAttribute('disabled', '');
+		checkBtn.style.cursor = 'not-allowed';
+	}
+};
