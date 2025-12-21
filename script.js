@@ -12,7 +12,6 @@ let maxNumber = Number(localStorage.getItem('highScore')) || 0;
 
 const getRandomNumber = () => {
 	guessNum = Math.floor(Math.random() * 20 + 1);
-	console.log(guessNum);
 	return guessNum;
 };
 
