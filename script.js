@@ -45,3 +45,13 @@ const checkNumber = () => {
 		checkBtn.style.cursor = 'not-allowed';
 	}
 };
+
+const reset = () => {
+	getRandomNumber();
+	scoreMes.textContent = `${(score = 20)}`;
+	message.textContent = 'Start guessing...';
+	inputNum.value = '';
+	title.textContent = 'Guess My Number!';
+	checkBtn.removeAttribute('disabled');
+	checkBtn.style.cursor = 'pointer';
+};
