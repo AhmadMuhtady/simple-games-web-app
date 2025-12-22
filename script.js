@@ -132,4 +132,5 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
 	getRandomNumber();
 	highScore.textContent = maxNumber;
+	closeModal();
 });

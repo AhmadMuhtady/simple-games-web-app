@@ -177,6 +177,7 @@ h2 {
 	justify-content: center;
 	gap: 3rem;
 	position: relative;
+	border-radius: 30px;
 }
 
 h3 {
