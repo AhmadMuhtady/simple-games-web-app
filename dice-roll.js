@@ -30,3 +30,7 @@ const btnCloseModal = document.querySelector('.close');
 const rollDice = () => {
 	return Math.floor(Math.random() * 6) + 1;
 };
+
+const changeImage = (number) => {
+	diceImage.src = `./images/dice-${number}.png`;
+};
