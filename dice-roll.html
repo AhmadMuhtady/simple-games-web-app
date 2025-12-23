@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="dice-roll.css" />
+		<title>Dice Roll</title>
+	</head>
+	<body>
+		<body>
+			<header>
+				<h2 class="title">Dice Roll</h2>
+				<a href="/"><button class="button back">Back</button></a>
+			</header>
+			<main>
+				<section class="player player--1 player--active">
+					<h2 class="name" id="name--0">Player 1</h2>
+					<p class="score" id="score--0">43</p>
+					<div class="current">
+						<p class="current-label">Current</p>
+						<p class="current-score" id="current--0">0</p>
+					</div>
+				</section>
+				<section class="player player--2">
+					<h2 class="name" id="name--1">Player 2</h2>
+					<p class="score" id="score--1">24</p>
+					<div class="current">
+						<p class="current-label">Current</p>
+						<p class="current-score" id="current--1">0</p>
+					</div>
+				</section>
+
+				<img src="dice-5.png" alt="Playing dice" class="dice" />
+				<button class="btn btn--new">🔄 New game</button>
+				<button class="btn btn--roll">🎲 Roll dice</button>
+				<button class="btn btn--hold">📥 Hold</button>
+			</main>
+
+			<div class="modal hidden">
+				<div class="modal-box">
+					<button class="btn close">✖️</button>
+					<h3 class="modalTitle">🎉 Player 1</h3>
+					<h4 class="modalTitle">Won!!</h4>
+					<button class="button modalAgain">Play Again?</button>
+				</div>
+			</div>
+			<script src="script.js"></script>
+		</body>
+	</body>
+</html>
