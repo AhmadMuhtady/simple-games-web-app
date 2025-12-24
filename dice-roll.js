@@ -29,3 +29,15 @@ const btnCloseModal = document.querySelector('.close');
 
 let gameFinished = false;
 let activePlayer = player0;
+
+const closeModal = () => {
+	modal.classList.add('hidden');
+};
+
+const rollDice = () => {
+	return Math.floor(Math.random() * 6) + 1;
+};
+
+const changeImage = (number) => {
+	diceImage.src = `./images/dice-${number}.png`;
+};
