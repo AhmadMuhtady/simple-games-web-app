@@ -41,3 +41,11 @@ const rollDice = () => {
 const changeImage = (number) => {
 	diceImage.src = `./images/dice-${number}.png`;
 };
+
+const getActivePlayer = () => activePlayer;
+
+const switchPlayers = () => {
+	activePlayer.element.classList.remove('player--active');
+	activePlayer = activePlayer === player0 ? player1 : player0; // Switch
+	activePlayer.element.classList.add('player--active');
+};
