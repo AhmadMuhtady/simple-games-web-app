@@ -49,3 +49,15 @@ const switchPlayers = () => {
 	activePlayer = activePlayer === player0 ? player1 : player0; // Switch
 	activePlayer.element.classList.add('player--active');
 };
+
+const softReset = () => {
+	const activePlayer = getActivePlayer();
+	activePlayer.currentScore = 0;
+	activePlayer.currentDisplay.textContent = 0;
+};
+
+const addingCurrent = (diceNumber) => {
+	const activePlayer = getActivePlayer();
+	activePlayer.currentScore += diceNumber;
+	activePlayer.currentDisplay.textContent = activePlayer.currentScore;
+};
