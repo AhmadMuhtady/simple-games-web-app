@@ -110,3 +110,20 @@ const resetPlayer = (player) => {
 	player.scoreDisplay.textContent = 0;
 	player.element.classList.remove('player--winner');
 };
+
+const newGame = () => {
+	gameFinished = false;
+	resetPlayer(player0);
+	resetPlayer(player1);
+
+	activePlayer = player0;
+
+	player0.element.classList.add('player--active');
+	player1.element.classList.remove('player--active');
+
+	modal.classList.add('hidden');
+	diceImage.src = `./images/dice-0.png`;
+
+	btnRoll.removeAttribute('disabled');
+	btnHold.removeAttribute('disabled');
+};
