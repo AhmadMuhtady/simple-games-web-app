@@ -79,3 +79,26 @@ const handleRollDice = () => {
 		addingCurrent(diceNumber);
 	}
 };
+
+const handleHold = () => {
+	if (gameFinished) return;
+	// Add current to main
+	const activePlayer = getActivePlayer();
+
+	activePlayer.mainScore += activePlayer.currentScore;
+	activePlayer.scoreDisplay.textContent = activePlayer.mainScore;
+
+	if (activePlayer.mainScore >= 100) {
+		// Show winner modal
+		gameFinished = true;
+		modal.classList.remove('hidden');
+		modalTitle.textContent = `🎉 ${activePlayer.name}`;
+		btnRoll.setAttribute('disabled', '');
+		btnHold.setAttribute('disabled', '');
+		activePlayer.element.classList.add('player--winner');
+		softReset();
+	} else {
+		softReset();
+		switchPlayers();
+	}
+};
