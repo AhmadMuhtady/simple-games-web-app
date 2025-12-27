@@ -102,3 +102,11 @@ const handleHold = () => {
 		switchPlayers();
 	}
 };
+
+const resetPlayer = (player) => {
+	player.currentScore = 0;
+	player.currentDisplay.textContent = 0;
+	player.mainScore = 0;
+	player.scoreDisplay.textContent = 0;
+	player.element.classList.remove('player--winner');
+};
