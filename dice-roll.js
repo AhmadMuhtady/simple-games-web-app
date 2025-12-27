@@ -127,3 +127,25 @@ const newGame = () => {
 	btnRoll.removeAttribute('disabled');
 	btnHold.removeAttribute('disabled');
 };
+
+btnCloseModal.addEventListener('click', closeModal);
+btnRoll.addEventListener('click', handleRollDice);
+btnHold.addEventListener('click', handleHold);
+btnAgainModal.addEventListener('click', newGame);
+btnNew.addEventListener('click', newGame);
+
+document.addEventListener('keydown', (e) => {
+	if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+});
+
+modal.addEventListener('click', (e) => {
+	if (e.target === modal) {
+		closeModal();
+	}
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+	newGame();
+	closeModal();
+	diceImage.src = `./images/dice-0.png`;
+});
