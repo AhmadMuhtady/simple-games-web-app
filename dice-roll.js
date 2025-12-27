@@ -61,3 +61,21 @@ const addingCurrent = (diceNumber) => {
 	activePlayer.currentScore += diceNumber;
 	activePlayer.currentDisplay.textContent = activePlayer.currentScore;
 };
+
+const switchPlayerOnLoss = () => {
+	softReset();
+	switchPlayers();
+};
+
+const handleRollDice = () => {
+	if (gameFinished) return;
+	const diceNumber = rollDice();
+
+	changeImage(diceNumber);
+
+	if (diceNumber === 1) {
+		switchPlayerOnLoss();
+	} else {
+		addingCurrent(diceNumber);
+	}
+};
