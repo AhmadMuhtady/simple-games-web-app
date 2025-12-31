@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Press Start 2P', sans-serif;
+	font-weight: 400;
+	height: 100vh;
+	color: #eee;
+	background: radial-gradient(circle at top, #333 0%, #111 70%);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: 10px;
+}
+
+header {
+	padding: 15px;
+	border-bottom: 6px solid #eee;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.title {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+main {
+	flex: 1;
+	position: relative;
+	width: 90%;
+	max-width: 100rem;
+	height: 40rem;
+	background-color: rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(200px);
+	filter: blur();
+	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+	border-radius: 9px;
+	overflow: hidden;
+	display: flex;
+}
+
+.player {
+	flex: 50%;
+	padding: 9rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: all 0.75s;
+}
+
+/* ELEMENTS */
+.name {
+	position: relative;
+	font-size: 3rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	font-weight: 300;
+	margin-bottom: 3rem;
+}
+
+.score {
+	font-size: 7rem;
+	font-weight: 300;
+	color: #c7365f;
+	margin-bottom: auto;
+}
+
+.current {
+	background-color: #c7365f;
+	opacity: 0.8;
+	border-radius: 9px;
+	color: #fff;
+	width: 65%;
+	padding: 2rem;
+	text-align: center;
+	transition: all 0.75s;
+}
+
+.current-label {
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	font-size: 1.7rem;
+	color: #ddd;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #444;
+	background: none;
+	border: none;
+	font-family: inherit;
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-weight: 400;
+	transition: all 0.2s;
+
+	background-color: white;
+	background-color: rgba(255, 255, 255, 0.6);
+	backdrop-filter: blur(10px);
+
+	padding: 0.7rem 2.5rem;
+	border-radius: 50rem;
+	box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.button {
+	font-family: inherit;
+	font-size: 1rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-weight: 400;
+	transition: all 0.2s;
+
+	background-color: white;
+	background-color: rgba(255, 255, 255, 0.6);
+	backdrop-filter: blur(10px);
+
+	padding: 0.7rem 2rem;
+	border-radius: 50rem;
+	box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.hands-buttons {
+	position: absolute;
+	bottom: 3rem;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 2rem;
+}
+
+.hands-button {
+	position: static;
+	transform: none;
+	font-size: 1rem;
+	cursor: pointer;
+
+	background: rgba(255, 255, 255, 0.75);
+	border: none;
+	border-radius: 50rem;
+	padding: 1rem 2.5rem;
+
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+	transition: all 0.2s;
+}
+
+.hands-button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.3);
+}
+
+.hands-button:active {
+	transform: translateY(0);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn::first-letter {
+	font-size: 2.4rem;
+	display: inline-block;
+	margin-right: 0.7rem;
+}
+
+.btn:active {
+	transform: translate(-50%, 3px);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.hands {
+	transform: translateX(-50%);
+	font-size: 8rem;
+	box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.images {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 43%;
+	top: 16.5rem;
+	gap: 50px;
+}
+
+.player--winner {
+	background-color: #2f2f2f;
+}
+
+.player--winner .name {
+	font-weight: 700;
+	color: #c7365f;
+}
+
+.modal {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10;
+}
+
+.modal-box {
+	width: 400px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 3rem;
+	position: relative;
+	border-radius: 30px;
+	color: #333;
+	background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+}
+
+h3 {
+	font-size: 3rem;
+	text-align: center;
+	line-height: 1.4;
+	padding: 5px;
+}
+
+h4 {
+	font-size: 2.5rem;
+	text-align: center;
+	line-height: 1.4;
+	padding: 5px;
+}
+
+.btn.close {
+	position: absolute;
+	background: transparent;
+	top: 1rem;
+	left: 34rem;
+	cursor: pointer;
+	color: #222;
+	transition: all 0.15s ease;
+}
+
+.hidden {
+	display: none;
+}
