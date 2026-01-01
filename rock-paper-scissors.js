@@ -48,3 +48,31 @@ const handleModal = (score1, score2) => {
 		});
 	}
 };
+
+const determineWinner = (playerChoice) => {
+	const computer = pickHands();
+
+	updateHandDisplay(playerChoice, player1hand);
+	updateHandDisplay(computer, player2hand);
+
+	if (playerChoice === computer) return 'Draw';
+
+	const wins = {
+		'Rock 🪨': 'Scissors ✂️',
+		'Paper 📄': 'Rock 🪨',
+		'Scissors ✂️': 'Paper 📄',
+	};
+
+	const result =
+		wins[playerChoice] === computer ? 'Player Wins' : 'Computer Wins';
+
+	if (result === 'Player Wins') {
+		playerScore++;
+		playerScoreDisplay.textContent = playerScore;
+	} else if (result === 'Computer Wins') {
+		computerScore++;
+		computerScoreDisplay.textContent = computerScore;
+	}
+
+	handleModal(playerScore, computerScore);
+};
