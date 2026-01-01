@@ -5,6 +5,7 @@ let playerScore = 0;
 let computerScore = 0;
 const playerScoreDisplay = document.getElementById('score--1');
 const computerScoreDisplay = document.getElementById('score--2');
+const handsButtons = document.querySelectorAll('.hands-button');
 
 const btnNew = document.querySelector('.btn--new');
 
@@ -31,4 +32,19 @@ const updateHandDisplay = (hand, displayElement) => {
 		'Scissors ✂️': '✂️',
 	};
 	displayElement.innerText = emojiMap[hand];
+};
+
+const closeModal = () => {
+	modal.classList.add('hidden');
+};
+
+const handleModal = (score1, score2) => {
+	if (score1 === 5 || score2 === 5) {
+		modalTitle.textContent = score1 === 5 ? 'You Won!!!' : 'You Lost!!!';
+		modal.classList.remove('hidden');
+
+		handsButtons.forEach((button) => {
+			button.disabled = true;
+		});
+	}
 };
