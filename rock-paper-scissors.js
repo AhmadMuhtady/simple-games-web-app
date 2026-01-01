@@ -14,3 +14,7 @@ const btnAgainModal = document.querySelector('.modalAgain');
 const btnCloseModal = document.querySelector('.close');
 
 const hands = ['Rock 🪨', 'Paper 📄', 'Scissors ✂️'];
+
+buttonsSection.innerHTML = hands
+	.map((hand) => `<button class="btn hands-button">${hand}</button>`)
+	.join('');
