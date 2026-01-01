@@ -5,7 +5,6 @@ let playerScore = 0;
 let computerScore = 0;
 const playerScoreDisplay = document.getElementById('score--1');
 const computerScoreDisplay = document.getElementById('score--2');
-const handsButtons = document.querySelectorAll('.hands-button');
 
 const btnNew = document.querySelector('.btn--new');
 
@@ -24,6 +23,8 @@ const pickHands = () => {
 	const random = Math.floor(Math.random() * hands.length);
 	return hands[random];
 };
+
+const handsButtons = document.querySelectorAll('.hands-button');
 
 const updateHandDisplay = (hand, displayElement) => {
 	const emojiMap = {
@@ -94,8 +95,7 @@ btnNew.addEventListener('click', newGame);
 
 handsButtons.forEach((button) => {
 	button.addEventListener('click', (e) => {
-		player1 = e.target.innerText;
-		determineWinner(player1);
+		determineWinner(e.target.innerText);
 	});
 });
 
@@ -107,4 +107,9 @@ modal.addEventListener('click', (e) => {
 	if (e.target === modal) {
 		closeModal();
 	}
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+	newGame();
+	closeModal();
 });
