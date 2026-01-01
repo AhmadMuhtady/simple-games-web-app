@@ -87,3 +87,24 @@ const newGame = () => {
 		button.disabled = false;
 	});
 };
+
+btnCloseModal.addEventListener('click', closeModal);
+btnAgainModal.addEventListener('click', newGame);
+btnNew.addEventListener('click', newGame);
+
+handsButtons.forEach((button) => {
+	button.addEventListener('click', (e) => {
+		player1 = e.target.innerText;
+		determineWinner(player1);
+	});
+});
+
+document.addEventListener('keydown', (e) => {
+	if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+});
+
+modal.addEventListener('click', (e) => {
+	if (e.target === modal) {
+		closeModal();
+	}
+});
