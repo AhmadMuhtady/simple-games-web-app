@@ -76,3 +76,14 @@ const determineWinner = (playerChoice) => {
 
 	handleModal(playerScore, computerScore);
 };
+
+const newGame = () => {
+	playerScore = 0;
+	computerScore = 0;
+	playerScoreDisplay.textContent = 0;
+	computerScoreDisplay.textContent = 0;
+	closeModal();
+	handsButtons.forEach((button) => {
+		button.disabled = false;
+	});
+};
