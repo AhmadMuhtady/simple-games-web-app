@@ -18,3 +18,17 @@ const hands = ['Rock 🪨', 'Paper 📄', 'Scissors ✂️'];
 buttonsSection.innerHTML = hands
 	.map((hand) => `<button class="btn hands-button">${hand}</button>`)
 	.join('');
+
+const pickHands = () => {
+	const random = Math.floor(Math.random() * hands.length);
+	return hands[random];
+};
+
+const updateHandDisplay = (hand, displayElement) => {
+	const emojiMap = {
+		'Rock 🪨': '🪨',
+		'Paper 📄': '📄',
+		'Scissors ✂️': '✂️',
+	};
+	displayElement.innerText = emojiMap[hand];
+};
